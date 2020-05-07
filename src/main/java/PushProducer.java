@@ -28,8 +28,8 @@ public class PushProducer {
     public static void main(String[] args) {
         PushProducer pushProducer = new PushProducer();
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-        factory.setUsername("xxxx");
+        factory.setHost("localhost:5672");
+        factory.setUsername("ehooo");
         factory.setPassword("xxxx");
 
         try (Connection connection = factory.newConnection(); final Channel channel = connection.createChannel()) {

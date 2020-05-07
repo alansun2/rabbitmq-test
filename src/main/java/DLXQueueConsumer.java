@@ -18,8 +18,8 @@ public class DLXQueueConsumer {
         Producer pushProducer = new Producer();
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        factory.setUsername("ehooo");
-        factory.setPassword("ehooo100");
+        factory.setUsername("123456");
+        factory.setPassword("123456");
         Connection connection = factory.newConnection();
         final Channel channel = connection.createChannel();
         channel.basicQos(10);

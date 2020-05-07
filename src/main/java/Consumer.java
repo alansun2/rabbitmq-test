@@ -15,15 +15,15 @@ public class Consumer {
     public static void main(String[] args) throws IOException, TimeoutException {
         Producer pushProducer = new Producer();
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-        factory.setUsername("ehooo");
-        factory.setPassword("ehooo100");
+        factory.setHost("localhost:5672");
+        factory.setUsername("xxxx");
+        factory.setPassword("xxxxxx");
         Connection connection = factory.newConnection();
         final Channel channel = connection.createChannel();
 //        channel.queueDeclare(Producer.QUEUE_NAME, true, false, false, null);
 //        channel.exchangeDeclare(Producer.EXCHANGE, BuiltinExchangeType.TOPIC);
 //        channel.queueBind(Producer.QUEUE_NAME, Producer.EXCHANGE, BIND_KEY);
-        channel.basicQos(10);
+//        channel.basicQos(10);
 
         AtomicInteger i = new AtomicInteger();
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
@@ -38,7 +38,7 @@ public class Consumer {
 //                i.set(0);
 //            }
         };
-        channel.basicConsume(Producer.QUEUE_NAME, false, deliverCallback, consumerTag -> {
+        channel.basicConsume(Producer.BIND_KEY, false, deliverCallback, consumerTag -> {
             System.out.println("cancel: " + consumerTag);
         });
     }

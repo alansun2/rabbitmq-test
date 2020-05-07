@@ -20,8 +20,8 @@ public class Producer {
         Producer pushProducer = new Producer();
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        factory.setUsername("ehooo");
-        factory.setPassword("ehooo100");
+        factory.setUsername("111");
+        factory.setPassword("123456");
         try (Connection connection = factory.newConnection(); final Channel channel = connection.createChannel()) {
 //            System.out.println(connection.getAddress());
 //            System.out.println(connection.getHeartbeat());
